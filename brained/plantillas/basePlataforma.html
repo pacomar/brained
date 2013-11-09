@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BRAINED-{% block titulo %}{% endblock %}</title>
+        <meta name="description" content="Tutoriales para todos">
+
+        <link rel="shortcut icon" href="{{STATIC_URL}}icono/favicon.ico">
+
+        <link rel="stylesheet" href="{{STATIC_URL}}css/base.css">
+        <script type="text/javascript" src="{{STATIC_URL}}js/cssrefresh.js"></script>
+        <script src="{{STATIC_URL}}js/funciones.js"></script>
+        <script src="{{STATIC_URL}}js/libs/jquery-1.7.1.js"></script>
+        {% block head %}{% endblock %}
+        {% if request.session.lang == "es" %}
+            <style type="text/css">
+                .menu-item a{
+                    padding:15px 39px;
+                }
+            </style>
+        {% endif %}
+    </head>
+    <body>
+        <header>
+            <nav id="navSup">
+                <ul id="menu">
+                    <li class="menu-item first-menu-item"><a href="/">Brained</a></li>
+                    <li class="menu-item"><a href="/browse">{% if request.session.lang == "es" %}Explora{% else %}Browse{% endif %}</a></li>
+                    <li class="menu-item"><a href="/share">{% if request.session.lang == "es" %}Comparte{% else %}Share{% endif %}</a></li>
+                    <li class="menu-item"><a href="/top">{% if request.session.lang == "es" %}Valorados{% else %}Top{% endif %}</a></li>
+                    <li class="menu-item"><a href="/search">{% if request.session.lang == "es" %}Buscar{% else %}Search{% endif %}</a></li>
+                    <li class="menu-item"><a href="/login">{% if request.session.lang == "es" %}Entrar{% else %}Log In{% endif %}</a></li>
+                    <li class="menu-item"><a href="/signup">{% if request.session.lang == "es" %}Registro{% else %}Sign Up{% endif %}</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="wrapper">
+            <div id="contenido">
+                {% block contenido %}{% endblock %}    
+            </div>
+        </div>
+        <footer>
+            <nav id="navInf">
+                <ul id="footer-menu">
+                    <li class="footer-menu-item"><a href="/forum">{% if request.session.lang == "es" %}Foro{% else %}Froum{% endif %}</a></li>
+                    <li class="footer-menu-item"><a href="/help">{% if request.session.lang == "es" %}Ayuda{% else %}Help{% endif %}</a></li>
+                    <li class="footer-menu-item"><a href="/privacy">{% if request.session.lang == "es" %}Privacidad{% else %}Privacy{% endif %}</a></li>
+                    <li class="footer-menu-item"><a href="/about">{% if request.session.lang == "es" %}Acerca{% else %}About{% endif %}</a></li>
+                    <li class="footer-menu-item"><a href="/contact">{% if request.session.lang == "es" %}Contacto{% else %}Contact{% endif %}</a></li>
+                </ul>
+            </nav>
+            <div id="textFooter">
+                Creado por Francisco Martinez todos los derechos reservados.
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'basePlataforma.html' %}
+
+{% block titulo %}{% if request.session.lang == "es" %}Inicio{% else %}Home{% endif %}{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block contenido %}
+<h1>Home</h1>
+{% if request.session.lang == "es" %}Idiomas{% else %}Languages{% endif %}
+<a href="/es">ES</a>
+<a href="/en">EN</a>
+{% endblock %}
